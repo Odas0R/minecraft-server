@@ -1,0 +1,10 @@
+#!/bin/bash
+
+IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' minecraft-server-mc-1)
+SERVER="$IP:25565"
+
+# echo "CLIENT: cloudflared access tcp --hostname minecraft.muxit.co --url 'tcp://$SERVER'"
+#
+# cloudflared tunnel --url "tcp://$SERVER" run minecraft
+
+ngrok tcp $SERVER

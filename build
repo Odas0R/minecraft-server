@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker compose up mc --detach --build --force-recreate
